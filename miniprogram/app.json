@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/order/index",
+    "pages/baihuo/index",
+    "pages/shop/index",
+    "pages/person/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "text": "点单"
+      },
+      {
+        "pagePath": "pages/baihuo/index",
+        "text": "百货"
+      },
+      {
+        "pagePath": "pages/shop/index",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/person/index",
+        "text": "喜嘉宾"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

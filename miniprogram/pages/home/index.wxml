@@ -1,0 +1,22 @@
+<scroll-view scroll-y enable-passive="{{ true }}">
+  <view class="swiper-view-warp">
+    <swiper class="swiper-warp">
+      <swiper-item class="" item-id="">
+        <video
+          id="myVideo"
+          src="https://go.cdn.heytea.com/storage/product/2023/11/13/69c0ea18f98948209564c20596cf77e8.mp4"
+          binderror="videoErrorCallback"
+          autoplay
+          loop
+          muted
+          show-center-play-btn="{{ false }}"
+          show-play-btn="{{ false }}"
+          controls="{{ false }}"
+          class="swiper-video"
+          object-fit="{{ contain }}"
+        ></video>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view></view>
+</scroll-view>
