@@ -22,7 +22,8 @@
   "include": [
     "./**/*.ts",
     "miniprogram/custom-tab-bar/index.js",
-    "miniprogram/pages/home/index.js"
+    "miniprogram/pages/home/index.js",
+    "miniprogram/pages/order/index.js"
   ],
   "exclude": ["node_modules"]
 }

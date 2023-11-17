@@ -1,4 +1,4 @@
 {
-  "navigationStyle": "custom",
-  "renderer": "skyline"
+  "usingComponents": {},
+  "navigationStyle": "custom"
 }

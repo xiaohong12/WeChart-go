@@ -5,31 +5,31 @@ Component({
     selectedColor: '#333333',
     list: [
       {
-        pagePath: 'pages/home/index',
+        pagePath: '../home/index',
         iconPath: '../image/tabBar/unselect_home.png',
         selectedIconPath: '../image/tabBar/select_home.png',
         text: '首页',
       },
       {
-        pagePath: 'pages/order/index',
+        pagePath: '../order/index',
         iconPath: '../image/tabBar/unselect_naicha.png',
         selectedIconPath: '../image/tabBar/select_nacha.png',
         text: '点单',
       },
       {
-        pagePath: 'pages/baihuo/index',
+        pagePath: '../baihuo/index',
         iconPath: '../image/tabBar/unselect_shop.png',
         selectedIconPath: '../image/tabBar/select_shop.png',
         text: '百货',
       },
       {
-        pagePath: 'pages/shop/index',
+        pagePath: '../shop/index',
         iconPath: '../image/tabBar/unselect_dingdan.png',
         selectedIconPath: '../image/tabBar/select_dingdan.png',
         text: '订单',
       },
       {
-        pagePath: 'pages/person/index',
+        pagePath: '../person/index',
         iconPath: '../image/tabBar/unselect_xi.png',
         selectedIconPath: '../image/tabBar/select_xi.png',
         text: '喜嘉宾',
@@ -41,7 +41,15 @@ Component({
     switchTab(e) {
       const data = e.currentTarget.dataset;
       const url = data.path;
-      wx.switchTab({ url });
+      console.log(url);
+      wx.switchTab({
+        url,
+        success() {},
+        fail(e) {
+          console.log(e);
+        },
+      });
+      console.log(data.index);
       this.setData({
         selected: data.index,
       });

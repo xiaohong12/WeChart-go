@@ -27,10 +27,17 @@ Page({
   },
   bindchange({ detail }) {
     //获取当前激活的swpier index
-    console.log(detail)
+    console.log(detail);
     this.setData({
       centerSwipterActiveIndex: detail.current,
       activeSwiperLable: homeData.info.infos[detail.current].label,
     });
+  },
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0,
+      });
+    }
   },
 });
