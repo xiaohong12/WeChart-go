@@ -41,15 +41,12 @@ Component({
     switchTab(e) {
       const data = e.currentTarget.dataset;
       const url = data.path;
-      console.log(url);
       wx.switchTab({
         url,
         success() {},
         fail(e) {
-          console.log(e);
         },
       });
-      console.log(data.index);
       this.setData({
         selected: data.index,
       });

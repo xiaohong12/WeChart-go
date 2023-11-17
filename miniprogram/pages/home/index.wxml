@@ -7,7 +7,7 @@
   enhanced="{{ true }}"
 >
   <view class="swiper-view-warp">
-    <swiper class="swiper-warp" interval="2000" circular autoplay="true">
+    <swiper class="swiper-warp" interval="{{headInterval}}" circular autoplay="true" bindchange="headBindChange">
       <block wx:for="{{ swiperList }}" wx:key="index">
         <swiper-item class="" item-id="" wx:if="{{ item.videoUrl }}">
           <video
@@ -133,7 +133,7 @@
         circular
         autoplay="{{ false }}"
         class="center-swiper"
-        bindchange="bindchange"
+        bindchange="centerBindchange"
       >
         <block wx:for="{{ homeData.info.infos }}" wx:key="index">
           <swiper-item class="center-swiper-item">

@@ -11,6 +11,7 @@ Page({
     bannerList: [],
     centerSwipterActiveIndex: 0,
     activeSwiperLable: '',
+    headInterval: 8000,
   },
 
   //页面加载是初始化数据
@@ -25,19 +26,25 @@ Page({
       activeSwiperLable: homeData.info.infos[0]?.label,
     });
   },
-  bindchange({ detail }) {
-    //获取当前激活的swpier index
-    console.log(detail);
-    this.setData({
-      centerSwipterActiveIndex: detail.current,
-      activeSwiperLable: homeData.info.infos[detail.current].label,
-    });
-  },
   onShow() {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         selected: 0,
       });
     }
+  },
+
+  headBindChange({ detail }) {
+    //第一张是视频 所以需要动态控制自动播放的时间
+    this.setData({
+      headInterval: detail.current == 0 ? 8000 : 2000,
+    });
+  },
+  centerBindchange({ detail }) {
+    //获取当前激活的swpier index
+    this.setData({
+      centerSwipterActiveIndex: detail.current,
+      activeSwiperLable: homeData.info.infos[detail.current].label,
+    });
   },
 });
