@@ -17,14 +17,12 @@
     "strict": true,
     "strictPropertyInitialization": true,
     "lib": ["ES2020"],
-    "typeRoots": [
-      "./typings"
-    ]
+    "typeRoots": ["./typings"]
   },
   "include": [
-    "./**/*.ts"
+    "./**/*.ts",
+    "miniprogram/custom-tab-bar/index.js",
+    "miniprogram/pages/home/index.js"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

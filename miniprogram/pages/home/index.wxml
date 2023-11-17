@@ -1,22 +1,88 @@
 <scroll-view scroll-y enable-passive="{{ true }}">
   <view class="swiper-view-warp">
-    <swiper class="swiper-warp">
-      <swiper-item class="" item-id="">
-        <video
-          id="myVideo"
-          src="https://go.cdn.heytea.com/storage/product/2023/11/13/69c0ea18f98948209564c20596cf77e8.mp4"
-          binderror="videoErrorCallback"
-          autoplay
-          loop
-          muted
-          show-center-play-btn="{{ false }}"
-          show-play-btn="{{ false }}"
-          controls="{{ false }}"
-          class="swiper-video"
-          object-fit="{{ contain }}"
-        ></video>
-      </swiper-item>
+    <swiper class="swiper-warp" interval="2000" circular autoplay="true" loop>
+      <block wx:for="{{ swiperList }}" wx:key="index">
+        <swiper-item class="" item-id="" wx:if="{{ item.videoUrl }}">
+          <video
+            id="myVideo"
+            src="https://go.cdn.heytea.com/storage/product/2023/11/13/69c0ea18f98948209564c20596cf77e8.mp4"
+            binderror="videoErrorCallback"
+            vodimg
+            autoplay
+            loop
+            muted
+            show-center-play-btn="{{ false }}"
+            show-play-btn="{{ false }}"
+            controls="{{ false }}"
+            class="swiper-video"
+            object-fit="{{ contain }}"
+          ></video>
+        </swiper-item>
+        <swiper-item class="" item-id="" wx:if="{{ item.imageUrl }}">
+          <view class="image-view-warp">
+            <view class="image-item">
+              <image
+                style="width: 100%; height: 100%"
+                src="{{ item.imageUrl }}"
+              >
+              </image>
+            </view>
+
+            <view class="mask-image-view">
+              <image
+                src="{{ item.maskImageUrl }}"
+                style="width: 100%; height: 100%"
+              >
+              </image>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
     </swiper>
+  </view>
+  <view class="home-context-warp">
+    <view class="home-context">
+      <view
+        class="flex flex-row justify-between items-center box-border border-bottom-line"
+      >
+        <view>
+          <view class="flex flex-row justify-start items-center mb-20">
+            <text>还没睡醒</text>
+            <view class="user-leve">高阶贵宾</view>
+          </view>
+          <view class="flex flex-row justify-start items-center">
+            <rich-text class="coupon"
+              >喜茶卷
+              <text class="coupon-num">0</text>
+            </rich-text>
+            <rich-text text class="integral"
+              >积分
+              <text class="integral-num">237</text>
+            </rich-text>
+          </view>
+        </view>
+        <view>
+          <image src="../../image/home/qrcode.png" class="thumb-qrcode"></image>
+        </view>
+      </view>
+      <view class="flex flex-row justify-start mt-30">
+        <text class="my-privilege">我的特权</text>
+        <swiper
+          class="swiper-msg-warp"
+          scroll-y
+          autoplay
+          interval="2000"
+          vertical
+          circular
+        >
+          <block wx:for="{{ bannerList }}" wx:key="index">
+            <swiper-item class="my-privilege-item">
+              <text overflow="ellipsis"> {{ item }}</text>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
   </view>
   <view></view>
 </scroll-view>
