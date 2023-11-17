@@ -1,6 +1,13 @@
-<scroll-view scroll-y enable-passive="{{ true }}">
+<scroll-view
+  scroll-y
+  enable-passive="{{ true }}"
+  style="height:{{ windowInfo.windowHeight - 58 }}px"
+  enable-passive
+  show-scrollbar="{{ false }}"
+  enhanced="{{ true }}"
+>
   <view class="swiper-view-warp">
-    <swiper class="swiper-warp" interval="2000" circular autoplay="true" loop>
+    <swiper class="swiper-warp" interval="2000" circular autoplay="true">
       <block wx:for="{{ swiperList }}" wx:key="index">
         <swiper-item class="" item-id="" wx:if="{{ item.videoUrl }}">
           <video
@@ -65,7 +72,7 @@
           <image src="../../image/home/qrcode.png" class="thumb-qrcode"></image>
         </view>
       </view>
-      <view class="flex flex-row justify-start mt-30">
+      <view class="flex flex-row justify-start mt-30 items-center relative">
         <text class="my-privilege">我的特权</text>
         <swiper
           class="swiper-msg-warp"
@@ -81,8 +88,75 @@
             </swiper-item>
           </block>
         </swiper>
+        <image
+          src="../../image/home/right.png"
+          style="height: 60rpx; width: 60rpx"
+          class="right-icon"
+        ></image>
       </view>
     </view>
+    <view class="order-type-warp">
+      <view class="order-top-warp">
+        <view class="flex flex-row items-center justify-around">
+          <view
+            class="flex flex-col items-center justify-center get-order-type boreder-right"
+          >
+            <text class="type">到店自取</text>
+            <text class="dec">提前下单免排队</text>
+          </view>
+          <view
+            class="flex flex-col items-center justify-center get-order-type"
+          >
+            <image src="../../image/home/waimai.png" class="waimai"> </image>
+            <text class="type">喜外送</text>
+            <text class="dec">随时欢喜送到家</text>
+          </view>
+        </view>
+      </view>
+      <scroll-view style="width: 100%" scroll-x scroll-left enable-passive>
+        <view class="flex flex-row">
+          <block wx:for="{{ homeData.module.modules }}" wx:key="index">
+            <view class="project-introduce">
+              <view class="tip-warp" wx:if="{{ item.tip.length > 0 }}">
+                <text>{{ item.tip }}</text>
+                <view class="san-jiao"></view>
+              </view>
+              <image src="{{ item.imageUrl }}" class="type-icon"></image>
+              <text class="dec"> {{ item.title }}</text>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    <View class="center-warp">
+      <swiper
+        circular
+        autoplay="{{ false }}"
+        class="center-swiper"
+        bindchange="bindchange"
+      >
+        <block wx:for="{{ homeData.info.infos }}" wx:key="index">
+          <swiper-item class="center-swiper-item">
+            <image
+              src="{{ item.imageUrl }}"
+              style="width: 100%; height: 400rpx"
+            ></image>
+
+            <View class="item-banner flex flex-col justify-start">
+              <text>{{ item.title }}</text>
+              <text class="subtitle"> {{ item.subTitle }}</text>
+            </View>
+          </swiper-item>
+        </block>
+      </swiper>
+      <text class="item-label">{{ activeSwiperLable }}</text>
+    </View>
+    <view style="margin-top: 10rpx">
+      <image
+        src="{{ homeData.brands[0].imageUrl }}"
+        style="width: 100%"
+      ></image>
+    </view>
+    <view style="height: 58px"> </view>
   </view>
-  <view></view>
 </scroll-view>

@@ -55,7 +55,7 @@ page {
   font-size: 26rpx;
 }
 .coupon {
-  font-size: 30rpx;
+  font-size: 26rpx;
 }
 .coupon-num {
   font-weight: 800;
@@ -75,7 +75,7 @@ page {
 }
 .integral {
   margin-left: 110rpx;
-  font-size: 30rpx;
+  font-size: 26rpx;
 }
 .integral-num {
   font-weight: 800;
@@ -93,24 +93,153 @@ page {
 .box-border {
   box-sizing: border-box;
 }
-.border-bottom-line{
-  border-bottom-style:solid;
+.border-bottom-line {
+  border-bottom-style: solid;
   border-width: 0rpx;
-  border-color: #DDDDD2;
+  border-color: #ddddd2;
   border-bottom-width: 3rpx;
   padding-bottom: 30rpx;
 }
-.swiper-msg-warp{
-  height: 40rpx; 
-  width: 100%;
+.swiper-msg-warp {
+  height: 40rpx;
+  width: 90%;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
 }
-.my-privilege{
+.my-privilege {
   width: 25%;
-  color:#e69964;
-  font-weight: 800;
-  font-size: 30rpx;
+  color: #d1ab71;
+  font-weight: 900;
+  font-size: 26rpx;
 }
-.my-privilege-item{
+.my-privilege-item {
+  width: 90%;
+  font-size: 26rpx;
+}
+.right-icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+.order-type-warp{
+  background-color: white;
   width: 100%;
-  font-size:30rpx ;
+  position: relative;
+  box-sizing: border-box;
+  top:-30rpx;
+  .order-top-warp{
+  padding: 50rpx;
+  padding-bottom: 20rpx;
+  }
+}
+.get-order-type{
+  width: 50%;
+  position: relative;
+  .type{
+    font-weight: 800;
+    color: #333333;
+  }
+  .dec{
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color:#868585;
+  }
+  .waimai{
+    opacity: 0.3;
+    width: 40%;
+    height: 100rpx;
+    z-index: 2;
+    position: absolute;
+    left: 25rpx;
+    top:-20rpx
+  }
+}
+.boreder-right{
+  border-right-style: solid;
+  border-width: 0rpx;
+  border-color: #ddddd2;
+  border-right-width: 3rpx;
+}
+.project-introduce{
+  display: inline-block;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30rpx;
+  padding-left: 30rpx;
+  padding-top: 50rpx;
+  .type-icon{
+    width: 120rpx;
+    height: 120rpx;
+  }
+  .dec{
+    font-size: 24rpx;
+    width: 160rpx; 
+    margin-top: 5rpx;
+    text-align: center;
+  }
+  .tip-warp{
+    position:absolute;
+    font-size: 22rpx;
+    width: 90%;
+    background-color: #d1ab71;
+    padding: 5rpx;
+    text-align: center;
+    color:white;
+    top:10rpx;
+    left: 55rpx;
+    .san-jiao{
+      position: absolute;
+      left: 40rpx;
+      width: 0;
+      height: 0;
+      border-top: 15rpx solid #d1ab71;
+      border-right: 15rpx solid transparent;
+      border-left: 15rpx solid transparent;
+    }
+  }
+} 
+
+.center-warp{
+  background-color: white;
+  width: 100%;
+  position: relative;
+  top:-10rpx;
+   .item-label{
+        position:absolute;
+        background-color: #0D0D0D;
+        padding:8rpx;
+        font-size: 20rpx;
+        left:-20rpx;
+        top:50rpx;
+        color:white;
+        z-index: 66666;
+      }
+  .center-swiper{
+    height: 540rpx;
+    .center-swiper-item{
+      position: relative;
+     
+      .item-banner{
+        background-color: white;
+        width: 100%;
+       padding:20rpx;
+      
+       .subtitle{
+         color:#868585;
+         font-size: 24rpx;
+         margin-top: 10rpx;
+       }
+      }
+    }
+   
+  }
 }
