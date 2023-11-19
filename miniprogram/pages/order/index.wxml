@@ -1,1 +1,19 @@
-<view>点单</view>
+ <scroll-view scroll-y="true">
+ <view class="order-top-warp">
+ <image src='https://go.cdn.heytea.com/storage/shop/2023/04/25/6b3217470068447ea0cf2239da561c81.jpg' 
+ class='current-shop-img'></image>
+ <view class="current-shop-warp" style="margin-top:{{buttonInfo.top}}px;">
+
+ <view class="flex-row flex justify-between items-center head-warp" style="height: 32px; ">
+ <view class="flex-row flex justify-between items-center get-shop-warp">
+  <text class="type-text {{currentActiveType==1 ? 'active':''}}" bindtap='setActiveType' data-type="1">自取</text>
+  <text class="line"></text>
+  <text class="type-text {{currentActiveType==2 ?'active' : ''}}" bindtap='setActiveType' data-type="2">喜外送</text>
+ </view>
+ <image src="../../image/order/search.png" style="width:35rpx;height:35rpx;margin-right: {{buttonInfo.width+40}}px;"/>
+</view>
+
+
+ </view>
+ </view>
+</scroll-view>
