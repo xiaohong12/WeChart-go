@@ -1,19 +1,107 @@
- <scroll-view scroll-y="true">
- <view class="order-top-warp">
- <image src='https://go.cdn.heytea.com/storage/shop/2023/04/25/6b3217470068447ea0cf2239da561c81.jpg' 
- class='current-shop-img'></image>
- <view class="current-shop-warp" style="margin-top:{{buttonInfo.top}}px;">
-
- <view class="flex-row flex justify-between items-center head-warp" style="height: 32px; ">
- <view class="flex-row flex justify-between items-center get-shop-warp">
-  <text class="type-text {{currentActiveType==1 ? 'active':''}}" bindtap='setActiveType' data-type="1">自取</text>
-  <text class="line"></text>
-  <text class="type-text {{currentActiveType==2 ?'active' : ''}}" bindtap='setActiveType' data-type="2">喜外送</text>
- </view>
- <image src="../../image/order/search.png" style="width:35rpx;height:35rpx;margin-right: {{buttonInfo.width+40}}px;"/>
-</view>
-
-
- </view>
- </view>
+<scroll-view
+  scroll-y="true"
+  style="height:{{ windowInfo.windowHeight - 58 }}px"
+>
+  <view class="order-top-warp">
+    <image
+      src="https://go.cdn.heytea.com/storage/shop/2023/04/25/6b3217470068447ea0cf2239da561c81.jpg"
+      class="current-shop-img"
+    ></image>
+    <view class="current-shop-warp" style="margin-top:{{ btnInfo.top }}px;">
+      <view
+        class="flex-row flex justify-between items-center head-warp"
+        style="height: 32px"
+      >
+        <view class="flex-row flex justify-between items-center get-shop-warp">
+          <text
+            class="type-text {{ currentActiveType == 1 ? 'active' : '' }}"
+            bindtap="setActiveType"
+            data-type="1"
+            >自取</text
+          >
+          <text class="line"></text>
+          <text
+            class="type-text {{ currentActiveType == 2 ? 'active' : '' }}"
+            bindtap="setActiveType"
+            data-type="2"
+            >喜外送</text
+          >
+        </view>
+        <image
+          src="../../image/order/search.png"
+          style="width:35rpx;height:35rpx;margin-right:{{btnInfo.width + 40 }}px;"
+        />
+      </view>
+      <view class="shop-info-warp">
+        <view class="flex flex-row items-center gap-15">
+          <image src="../../image/order/start.png" class="banner-icon"></image>
+          <text class="shop-name">{{ currentSelectShopItem.name }}</text>
+          <image src="../../image/order/right.png" class="banner-icon"></image>
+        </view>
+        <view class="mt-20 flex-row flex items-center gap-15">
+          <image
+            src="../../image/order/address.png"
+            class="banner-icon"
+          ></image>
+          <text class="c4 ft-28"
+            >距离您{{ currentSelectShopItem.distance }}m</text
+          >
+        </view>
+        <swiper
+          class="notice-swiper mt-20"
+          scroll-y
+          autoplay
+          interval="2000"
+          vertical
+          circular
+        >
+          <block wx:for="{{ noticeList }}" wx:key="index">
+            <swiper-item class="notice-item-warp">
+              <view class="flex flex-row items-center gap-15">
+                <image
+                  src="{{ item.image.url }}"
+                  wx:if="{{ item.image.url.length > 0 }}"
+                  class="notice-img"
+                ></image>
+                <text class="ft-25 white">{{ item.content }}</text>
+                <image
+                  src="../../image/order/right.png"
+                  class="banner-icon"
+                ></image>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+        <swiper
+          class="center-banner-warp"
+          display-multiple-items="{{ 2 }}"
+          next-margin="{{ 38 }}"
+          autoplay
+          interval="2000"
+          wx:if="{{ visible }}"
+        >
+          <block wx:for="{{ bannerList }}" wx:key="index">
+            <swiper-item class="banner-item">
+              <image src="{{ item.image_url }}" class="item-img"> </image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <!-- <button type="primary" bindtap="setVisible">页面主操作 Loading</button> -->
+        <view class="flex flex-row categories-warp">
+          <scroll-view class="categories-left-warp">
+            <block wx:for="{{ categoriesList }}" wx:key="index">
+              <view class="categories-name-warp flex flex-col">
+                <view class="lable justify-end items-end">{{
+                  item.label.name
+                }}</view>
+                <text>{{ item.name }}</text>
+              </view>
+            </block>
+          </scroll-view>
+          <scroll-view class="categories-right-warp"> </scroll-view>
+        </view>
+        <view class="bttom-warp"></view>
+      </view>
+    </view>
+  </view>
 </scroll-view>
