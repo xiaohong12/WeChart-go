@@ -1,6 +1,8 @@
 .order-top-warp {
   width: 100%;
   position: relative;
+  box-sizing: border-box;
+
   .current-shop-img {
     width: 100%;
     height: 555rpx;
@@ -18,7 +20,7 @@
   }
   .current-shop-warp {
     position: absolute;
-    left:25rpx;
+    // left:25rpx;
     top: 0rpx;
     width: 100%;
     z-index: 4;
@@ -26,6 +28,7 @@
       width: 100%;
       box-sizing: border-box;
       .get-shop-warp {
+         padding-left:25rpx;
         width: 35%;
         .type-text {
           text-align: center;
@@ -68,6 +71,10 @@
     .center-banner-warp{
       height: 500rpx;
       box-sizing: border-box;
+      opacity: 1;
+      .fadeOut{
+        transition: opacity 2s ease-out;
+      }
       .banner-item{
       .item-img{
         width: 95%;
@@ -77,31 +84,54 @@
     }
     .categories-warp{
       width: 100%;
-      height: 500rpx;
+      background-color:white ;
       .categories-left-warp{
         width: 20%;
+        border-width: 0rpx;
+        border-right-width: 1rpx;
+        border-style: solid;
+        border-color: #ddddd2;
+        .active-categories-warp{
+          border-right-width: 1rpx;
+          border-right-style: solid;
+          border-right-color: rgba(13, 13, 13, 0.7);
+        }
         .categories-name-warp{
           font-size: 28rpx;
           padding-top: 20rpx;
           padding-left: 10rpx;
           padding-right: 10rpx;
-          padding-top: 20rpx;
+          padding-bottom: 20rpx;
+         
+          .catefories-name{
+            color:#979797
+          }
+          .active-name{
+            color:rgba(13, 13, 13, 0.7)
+          }
         }
         .lable{
           font-size: 24rpx;
-          padding: 10 20 10 10;
-        
+          padding-left: 5rpx;
+          padding-right: 5rpx;
+          color: white;
         }
       }
     }
-    .bttom-warp{
-      height: 70px;
-      width: 100%;
-    }
+ 
   }
 }
 
 .banner-icon{
   width: 35rpx;
   height: 35rpx;
+}
+scroll-view ::-webkit-scrollbar {
+  display:none;
+  width:0;
+  height:0;
+  color:transparent;
+}
+.pl-25{
+  padding-left: 25rpx;
 }
