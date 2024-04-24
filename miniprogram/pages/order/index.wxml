@@ -1,4 +1,4 @@
- <scroll-view scroll-y="true" style="height:{{ windowInfo.windowHeight - 58 }}px;background-color: red;" >
+ <scroll-view scroll-y="true" style="height:{{ windowInfo.windowHeight - 58 }}px;" >
   <view class="order-top-warp">
     <image src="https://go.cdn.heytea.com/storage/shop/2023/04/25/6b3217470068447ea0cf2239da561c81.jpg" class="current-shop-img" />
     <view class="current-shop-warp" style="margin-top:{{ btnInfo.top }}px;">
@@ -58,8 +58,8 @@
           next-margin="{{ 38 }}"
           autoplay
           interval="2000"
-          animation="{{ animationData }}"
           wx:if="{{visible}}"
+          enable-passive
         >
           <block wx:for="{{ bannerList }}" wx:key="index">
             <swiper-item class="banner-item">
@@ -70,7 +70,8 @@
       </view>
         <!-- 菜单 -->
         <view class="flex flex-row categories-warp pl-25" id='xxx'>
-          <scroll-view class="categories-left-warp" scroll-y="true" style="height:{{productMenue-58}}px" bindscroll="leftSwiperScollerAction">
+          <scroll-view class="categories-left-warp" scroll-y="true" style="height:{{productMenue-58}}px"  enhanced binddragend="leftSwiperScollerAction"
+          bindscrolltoupper="scollerTopAction">
             <block wx:for="{{ categoriesList }}" wx:key="index">
               <view class="categories-name-warp flex flex-col {{item.id==currentActiveCategories &&'active-categories-warp'}}">
                 <view class=" justify-end items-end">
