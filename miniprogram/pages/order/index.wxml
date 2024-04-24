@@ -53,13 +53,14 @@
         </swiper>
         <!-- banner图滚动区域 -->
         <swiper
-          class="center-banner-warp  pl-25 "
+          class="center-banner-warp pl-25"
           display-multiple-items="{{ 2 }}"
           next-margin="{{ 38 }}"
           autoplay
           interval="2000"
-          wx:if="{{visible}}"
+          animation="{{ animationData }}"
           enable-passive
+          wx:if="{{visible}}"
         >
           <block wx:for="{{ bannerList }}" wx:key="index">
             <swiper-item class="banner-item">

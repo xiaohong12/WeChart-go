@@ -21,6 +21,7 @@ Page({
     categoriesList:[],
     currentActiveCategories:null,
     productMenue:100,
+    animationData:null
   },
   setActiveType(e) {
     const type = e.target.dataset.type;
@@ -40,7 +41,14 @@ Page({
     let _bannerList=bannerList.data.filter((item)=>{ 
       return item.position=="product"
     })
-   
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'linear',
+      delay: 0,
+    });
+    
+    // 设置动画的初始状态
+    animation.opacity(1).step();
     this.setData({
       btnInfo: info,
       shopList: shopList,
@@ -49,6 +57,7 @@ Page({
       noticeList:noticeList.notice,
       bannerList:_bannerList,
       categoriesList:categories.categories,
+      animationData: animation.export(),
     });
     
     let query = wx.createSelectorQuery().in(this);
@@ -62,6 +71,10 @@ Page({
         productMenue:windowInfo.windowHeight-top
       })
   });
+  },
+  onShow(){
+  
+
   },
   scollerTopAction(e){
     this.setData({
@@ -88,7 +101,19 @@ Page({
       })
   },
   leftSwiperScollerAction(e){
+    
     if(e.target.offsetTop>100){
+      var animation = wx.createAnimation({
+        duration: 1000,
+        timingFunction: 'linear',
+        delay: 0,
+      });
+      // 设置动画效果为透明度为 1
+      animation.opacity(0).step();
+      // 导出动画数据传递给组件的 animation 属性
+      this.setData({
+        animationData: animation.export(),
+      });
       this.setData({
         visible:false
       },()=>{
