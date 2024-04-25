@@ -1,92 +1,107 @@
- <scroll-view scroll-y="true" style="height:{{ windowInfo.windowHeight - 58 }}px;" >
-  <view class="order-top-warp">
+<scroll-view style="height:{{ windowInfo.windowHeight}}px;overflow:hidden;">
+  <view class="order-top-warp" style="height:{{ windowInfo.windowHeight}}px;overflow:hidden;">
     <image src="https://go.cdn.heytea.com/storage/shop/2023/04/25/6b3217470068447ea0cf2239da561c81.jpg" class="current-shop-img" />
-    <view class="current-shop-warp" style="margin-top:{{ btnInfo.top }}px;">
-    <view id='heard-warp'>
-      <view class="flex-row flex justify-between items-center head-warp" style="height: 32px">
-        <view class="flex-row flex justify-between items-center get-shop-warp">
-          <text
+    <view class="current-shop-warp" style="margin-top:{{ btnInfo.top }}px;height:{{ windowInfo.windowHeight}}px;">
+      <view id='heard-warp'>
+        <view class="flex-row flex justify-between items-center head-warp" style="height: 32px">
+          <view class="flex-row flex justify-between items-center get-shop-warp">
+            <text
             class="type-text {{ currentActiveType == 1 ? 'active' : '' }}"
             bindtap="setActiveType"
             data-type="1"
             >自取</text>
-          <text class="line"/>
-		  
+            <text class="line"/>
+
+
+
+
+
           <text
             class="type-text {{ currentActiveType == 2 ? 'active' : '' }}"
             bindtap="setActiveType"
             data-type="2"
             >喜外送
-       </text>
+       
+
+
+
+</text>
+          </view>
+          <image src="../../image/order/search.png" style="width:35rpx;height:35rpx;margin-right:{{btnInfo.width + 40 }}px;" />
         </view>
-        <image src="../../image/order/search.png" style="width:35rpx;height:35rpx;margin-right:{{btnInfo.width + 40 }}px;" />
-      </view>
-      <view class="shop-info-warp">
-        <view class="flex flex-row items-center gap-15 pl-25">
-          <image src="../../image/order/start.png" class="banner-icon" />
-          <text class="shop-name">{{ currentSelectShopItem.name }}</text>
-          <image src="../../image/order/right.png" class="banner-icon" />
-        </view>
-        <view class="mt-20 flex-row flex items-center gap-15 pl-25">
-          <image src="../../image/order/address.png" class="banner-icon" />
-          <text class="c4 ft-28"
+        <view class="shop-info-warp">
+          <view class="flex flex-row items-center gap-15 pl-25">
+            <image src="../../image/order/start.png" class="banner-icon" />
+            <text class="shop-name">{{ currentSelectShopItem.name }}</text>
+            <image src="../../image/order/right.png" class="banner-icon" />
+          </view>
+          <view class="mt-20 flex-row flex items-center gap-15 pl-25">
+            <image src="../../image/order/address.png" class="banner-icon" />
+            <text class="c4 ft-28"
             >距离您{{ currentSelectShopItem.distance }}m</text>
-        </view>
-        <!-- 消息滚动区域 -->
-        <swiper
-          class="notice-swiper mt-20  pl-25"
-          scroll-y
-          autoplay
-          interval="2000"
-          vertical
-          circular
-        >
-          <block wx:for="{{ noticeList }}" wx:key="index">
-            <swiper-item class="notice-item-warp">
-              <view class="flex flex-row items-center gap-15">
-                <image src="{{ item.image.url }}" wx:if="{{ item.image.url.length > 0 }}" class="notice-img" />
-                <text class="ft-25 white">{{ item.content }}</text>
-                <image src="../../image/order/right.png" class="banner-icon" />
-              </view>
-            </swiper-item>
-          </block>
-        </swiper>
-        <!-- banner图滚动区域 -->
-        <swiper
-          class="center-banner-warp pl-25"
-          display-multiple-items="{{ 2 }}"
-          next-margin="{{ 38 }}"
-          autoplay
-          interval="2000"
-          animation="{{ animationData }}"
-          enable-passive
-          wx:if="{{visible}}"
-        >
-          <block wx:for="{{ bannerList }}" wx:key="index">
-            <swiper-item class="banner-item">
-              <image src="{{ item.image_url }}" class="item-img" />
-            </swiper-item>
-          </block>
-        </swiper>
-      </view>
-        <!-- 菜单 -->
-        <view class="flex flex-row categories-warp pl-25" id='xxx'>
-          <scroll-view class="categories-left-warp" scroll-y="true" style="height:{{productMenue-58}}px"  enhanced binddragend="leftSwiperScollerAction"
-          bindscrolltoupper="scollerTopAction">
-            <block wx:for="{{ categoriesList }}" wx:key="index">
-              <view class="categories-name-warp flex flex-col {{item.id==currentActiveCategories &&'active-categories-warp'}}">
-                <view class=" justify-end items-end">
-                  <text class="lable" wx:if="{{item.label}}" style="background-color:{{item.label.label_color}};margin-bottom: 50rpx;">{{item.label.name}}</text>
+          </view>
+          <swiper
+            class="notice-swiper mt-20  pl-25"
+            scroll-y
+            autoplay
+            interval="2000"
+            vertical
+            circular
+          >
+            <block wx:for="{{ noticeList }}" wx:key="index">
+              <swiper-item class="notice-item-warp">
+                <view class="flex flex-row items-center gap-15">
+                  <image src="{{ item.image.url }}" wx:if="{{ item.image.url.length > 0 }}" class="notice-img" />
+                  <text class="ft-25 white">{{ item.content }}</text>
+                  <image src="../../image/order/right.png" class="banner-icon" />
                 </view>
-                <text class="catefories-name {{item.id==currentActiveCategories &&'active-name'}}" bindtap="setActiveCategoryies" data-id="{{item.id}}">{{ item.name }}</text>
-              </view>
+              </swiper-item>
             </block>
-          </scroll-view>
-          <scroll-view class="categories-right-warp" />
+          </swiper>
+
+        </view>
+        <view class="context-warp">
+          <swiper
+            class="center-banner-warp pl-25"
+            display-multiple-items="{{ 2 }}"
+            next-margin="{{ 38 }}"
+            autoplay
+            interval="2000"
+            wx:if="{{visible}}"
+            enable-passive
+          >
+            <block wx:for="{{ bannerList }}" wx:key="index">
+              <swiper-item class="banner-item">
+                <image src="{{ item.image_url }}" class="item-img" />
+              </swiper-item>
+            </block>
+          </swiper>
+
+          <view class="flex flex-row categories-warp pl-25" id='xxx' animation="{{ animationData }}">
+            <scroll-view
+              class="categories-left-warp"
+              scroll-y="true"
+              style="height:{{productMenue-58}}px"
+              enhanced="{{true}}"
+              binddragend="leftSwiperScollerAction"
+              show-scrollbar="{{false}}"
+              bindscrolltoupper="scollerTopAction"
+            >
+              <block wx:for="{{ categoriesList }}" wx:key="index">
+                <view class="categories-name-warp flex flex-col {{item.id==currentActiveCategories &&'active-categories-warp'}}">
+                  <view class=" justify-end items-end">
+                    <text class="lable" wx:if="{{item.label}}" style="background-color:{{item.label.label_color}};margin-bottom: 50rpx;">{{item.label.name}}</text>
+                  </view>
+                  <text class="catefories-name {{item.id==currentActiveCategories &&'active-name'}}" bindtap="setActiveCategoryies" data-id="{{item.id}}">{{ item.name }}</text>
+                </view>
+              </block>
+            </scroll-view>
+            <scroll-view class="categories-right-warp" />
+          </view>
         </view>
       </view>
     </view>
   </view>
 </scroll-view>
 
- 
+

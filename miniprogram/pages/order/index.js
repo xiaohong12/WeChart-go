@@ -51,6 +51,7 @@ Page({
     animation.opacity(1).step();
     this.setData({
       btnInfo: info,
+      currentActiveCategories:categories.categories[0].id,
       shopList: shopList,
       windowInfo,
       currentSelectShopItem:shopList.data[0],
@@ -77,6 +78,7 @@ Page({
 
   },
   scollerTopAction(e){
+    if(this.data.currentActiveCategories==this.data.categoriesList[0].id){
     this.setData({
       visible:true
     },()=>{
@@ -93,6 +95,7 @@ Page({
       })
    });
     })
+  }
   },
 
   setVisible(){
@@ -101,15 +104,14 @@ Page({
       })
   },
   leftSwiperScollerAction(e){
-    
-    if(e.target.offsetTop>100){
+    if(e.detail.scrollTop>10){
       var animation = wx.createAnimation({
         duration: 1000,
         timingFunction: 'linear',
         delay: 0,
       });
       // 设置动画效果为透明度为 1
-      animation.opacity(0).step();
+      animation.translateY(-5).step();
       // 导出动画数据传递给组件的 animation 属性
       this.setData({
         animationData: animation.export(),
@@ -131,11 +133,6 @@ Page({
     });
       })
       
-    }else{
-      console.log(11)
-      this.setData({
-        visible:true
-      })
     }
   },
 
