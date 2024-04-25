@@ -16,12 +16,14 @@
 
 
 
+
           <text
             class="type-text {{ currentActiveType == 2 ? 'active' : '' }}"
             bindtap="setActiveType"
             data-type="2"
             >喜外送
        
+
 
 
 
@@ -61,23 +63,25 @@
 
         </view>
         <view class="context-warp">
-          <swiper
-            class="center-banner-warp pl-25"
-            display-multiple-items="{{ 2 }}"
-            next-margin="{{ 38 }}"
-            autoplay
-            interval="2000"
-            wx:if="{{visible}}"
-            enable-passive
-          >
-            <block wx:for="{{ bannerList }}" wx:key="index">
-              <swiper-item class="banner-item">
-                <image src="{{ item.image_url }}" class="item-img" />
-              </swiper-item>
-            </block>
-          </swiper>
+          <view animation="{{ bannerAnimationData }}">
+            <swiper
+              class="center-banner-warp pl-25"
+              display-multiple-items="{{ 2 }}"
+              next-margin="{{ 38 }}"
+              autoplay
+              interval="2000"
+              wx:if="{{visible}}"
+              enable-passive
+            >
+              <block wx:for="{{ bannerList }}" wx:key="index">
+                <swiper-item class="banner-item">
+                  <image src="{{ item.image_url }}" class="item-img" />
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
 
-          <view class="flex flex-row categories-warp pl-25" id='xxx' animation="{{ animationData }}">
+          <view class="flex flex-row categories-warp pl-25" id='productCardBox' animation="{{ animationData }}">
             <scroll-view
               class="categories-left-warp"
               scroll-y="true"
@@ -95,6 +99,7 @@
                   <text class="catefories-name {{item.id==currentActiveCategories &&'active-name'}}" bindtap="setActiveCategoryies" data-id="{{item.id}}">{{ item.name }}</text>
                 </view>
               </block>
+              <view style="height: 50px;" />
             </scroll-view>
             <scroll-view class="categories-right-warp" />
           </view>
